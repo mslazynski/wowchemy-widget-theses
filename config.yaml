@@ -2,3 +2,8 @@ module:
   mounts:
     - source: layouts
       target: layouts
+markup:
+  defaultMarkdownHandler: goldmark
+  goldmark:
+    renderer:
+      unsafe: true
