@@ -11,7 +11,7 @@
 
 <h2>{{ or $section.Params.headerAvailable "Available Topics:" }}</h2>
 <ul>
-  {{ range where site.RegularPages.ByTitle "Section" "thesis" }}
+  {{ range site.RegularPages.ByTitle}}
     <li>
       {{ or .Params.topic "pizza" }}
     </li>
