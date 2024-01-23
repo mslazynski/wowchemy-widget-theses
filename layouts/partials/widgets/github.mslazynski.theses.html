@@ -1,5 +1,6 @@
 {{ $page := .root }}
 {{ $section := .page }}
+{{ $theses := range where .Site.RegularPages.ByTitle "Section" $section }}
 
 <div class="row">
 <div class="col-12">
@@ -12,7 +13,7 @@ Mamma mia.
 
 <h2>{{ or $section.Params.headerAvailable "Available Topics:" }}</h2>
 <ul>
-  {{ range where site.thesis.topic "Params.status" "eq" "available" }}
+  {{ range where $theses "Params.status" "eq" "available" }}
     <li>
       {{ .Params.topic }}
     </li>
@@ -21,7 +22,7 @@ Mamma mia.
 
 <h2>{{ or $section.Params.headerProgress "Work in Progress:" }}</h2>
 <ul>
-  {{ range where site.thesis.topic "Params.status" "eq" "inprogress" }}
+  {{ range where $theses "Params.status" "eq" "inprogress" }}
     <li>
       {{ .Params.topic }}
     </li>
@@ -30,7 +31,7 @@ Mamma mia.
 
 <h2>{{ or $section.Params.headerFinished "Finished Theses:" }}</h2>
 <ul>
-  {{  range where site.thesis.topic "Params.status" "eq" "finished" }}
+  {{  range where $theses "Params.status" "eq" "finished" }}
     <li>
       {{ .Params.topic }}
     </li>
