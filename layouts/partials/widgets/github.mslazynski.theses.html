@@ -9,14 +9,23 @@
 
 {{ $section.Content }}
 
-<h2>{{ or $section.Params.headerAvailable "Available Topics:" }}</h2>
-<ul>
-  {{ range site.RegularPages.ByTitle}}
-    <li>
-      {{ or .Params.topic "pizza" }}
-    </li>
-  {{ end }}
+<div class="section-subheading">{{ or $section.Params.headerAvailable "Available Topics:" }}</div>
+{{ range $page.Params.availableTopics }}
+<details class="spoiler " id="spoiler-0">
+<summary>{{ .name | markdownify}}</summary>
+<ul class="ul-social fa-ul">
+<li style="font-size: 0.9rem;">
+  <p>{{ .about | markdownify | emojify }}</p> 
+</li>
+<li style="display: inline-block; font-size: 0.75rem;">
+<i class="fa-solid fa-calendar"></i> {{ .when | markdownify }}</p>    
+</li>
+<li style="display: inline-block; font-size: 0.75rem;">
+<i class="fa-solid fa-globe"></i> {{ .skills | markdownify }}
+</li>
 </ul>
+</details>
+{{ end }}
 
 <h2>{{ or $section.Params.headerProgress "Work in Progress:" }}</h2>
 <ul>
