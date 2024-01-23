@@ -8,7 +8,7 @@
 
 {{ $section.Content }}
 
-<h2>{{ $section.HeaderAvailable | "Available Topics:" }}</h2>
+<h2>{{ or $section.HeaderAvailable "Available Topics:" }}</h2>
 <ul>
   {{ range where site.RegularPages "Type" "thesis" }}
     {{ if not isset .Params "student" }}
@@ -19,7 +19,7 @@
   {{ end }}
 </ul>
 
-<h2>{{ $section.HeaderProgress | "Work in Progress:" }}</h2>
+<h2>{{ or $section.HeaderProgress "Work in Progress:" }}</h2>
 <ul>
   {{ range where site.RegularPages "Type" "thesis" }}
     {{ if (and (isset .Params "student")  (not isset .Params "defense_date")) }}
@@ -30,7 +30,7 @@
   {{ end }}
 </ul>
 
-<h2>{{ $section.HeaderFinished | "Finished Theses:" }}</h2>
+<h2>{{ or $section.HeaderFinished "Finished Theses:" }}</h2>
 <ul>
   {{ range where site.RegularPages "Type" "thesis" }}
     {{ if (and (isset .Params "student")  (isset .Params "defense_date"))}}
