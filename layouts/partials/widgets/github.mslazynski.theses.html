@@ -1,6 +1,6 @@
 {{ $page := .root }}
 {{ $section := .page }}
-{{ $theses := range where .Site.RegularPages.ByTitle "Section" $section }}
+{{ $theses := where .Site.RegularPages.ByTitle "Section" $section }}
 
 <div class="row">
 <div class="col-12">
