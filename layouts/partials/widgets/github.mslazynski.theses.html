@@ -10,7 +10,7 @@
 {{ $section.Content }}
 
 <div class="section-subheading">{{ or $section.Params.headerAvailable "Available Topics:" }}</div>
-{{ range $page.Params.availableTopics }}
+{{ range $page.Params.topicsAvailable }}
 <details class="spoiler " id="spoiler-0">
 <summary>{{ .name | markdownify}}</summary>
 <ul class="ul-social fa-ul">
