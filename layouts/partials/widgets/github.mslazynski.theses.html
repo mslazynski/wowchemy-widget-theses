@@ -1,6 +1,6 @@
 {{ $page := .root }}
 {{ $section := .page }}
-{{ $theses := where .Site.RegularPages "Section" "thesis" }}
+{{ $theses := where site.RegularPages.ByTitle "Section" $section }}
 
 <div class="row">
 <div class="col-12">
