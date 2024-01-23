@@ -9,13 +9,11 @@
 
 {{ $section.Content }}
 
-Mamma mia. 
-
 <h2>{{ or $section.Params.headerAvailable "Available Topics:" }}</h2>
 <ul>
-  {{ range where $theses "Params.status" "eq" "available" }}
+  {{ range site.RegularPages.ByTitle "Section" "thesis" }}
     <li>
-      {{ .Params.topic }}
+      {{ or .Params.topic "pizza" }}
     </li>
   {{ end }}
 </ul>
