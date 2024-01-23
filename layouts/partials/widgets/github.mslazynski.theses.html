@@ -1,0 +1,46 @@
+{{ $page := .root }}
+{{ $section := .page }}
+
+<div class="row">
+<div class="col-12">
+  
+<h2>{{ $section.Title }}</h2>
+
+{{ $section.Content }}
+
+<h2>{{ $section.HeaderAvailable | "Available Topics:" }}</h2>
+<ul>
+  {{ range where site.RegularPages "Type" "thesis" }}
+    {{ if not isset .Params "student" }}
+      <li>
+        {{ .Params.topic }}
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+<h2>{{ $section.HeaderProgress | "Work in Progress:" }}</h2>
+<ul>
+  {{ range where site.RegularPages "Type" "thesis" }}
+    {{ if (and (isset .Params "student")  (not isset .Params "defense_date")) }}
+      <li>
+        {{ .Params.topic }}
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+<h2>{{ $section.HeaderFinished | "Finished Theses:" }}</h2>
+<ul>
+  {{ range where site.RegularPages "Type" "thesis" }}
+    {{ if (and (isset .Params "student")  (isset .Params "defense_date"))}}
+      <li>
+        {{ .Params.topic }}
+      </li>
+    {{ end }}
+  {{ end }}
+</ul>
+
+
+</div>
+</div>
