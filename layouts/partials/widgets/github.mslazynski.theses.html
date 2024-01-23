@@ -10,7 +10,7 @@
 
 Mamma mia. 
 
-<h2>{{ or $section.Params.HeaderAvailable "Available Topics:" }}</h2>
+<h2>{{ or $section.Params.headerAvailable "Available Topics:" }}</h2>
 <ul>
   {{ range where site.RegularPages "Type" "thesis" }}
     {{ if not isset .Params "student" }}
@@ -21,7 +21,7 @@ Mamma mia.
   {{ end }}
 </ul>
 
-<h2>{{ or $section.Params.HeaderProgress "Work in Progress:" }}</h2>
+<h2>{{ or $section.Params.headerProgress "Work in Progress:" }}</h2>
 <ul>
   {{ range where site.RegularPages "Type" "thesis" }}
     {{ if (and (isset .Params "student")  (not isset .Params "defense_date")) }}
@@ -32,7 +32,7 @@ Mamma mia.
   {{ end }}
 </ul>
 
-<h2>{{ or $section.Params.HeaderFinished "Finished Theses:" }}</h2>
+<h2>{{ or $section.Params.headerFinished "Finished Theses:" }}</h2>
 <ul>
   {{ range where site.RegularPages "Type" "thesis" }}
     {{ if (and (isset .Params "student")  (isset .Params "defense_date"))}}
