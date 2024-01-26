@@ -10,7 +10,7 @@
 {{ $section.Content }}
 
 <div class="section-subheading">{{ or $section.Params.headerAvailable "Available Topics:" }}</div>
-{{ range $section.Params.topicsAvailable }}
+{{ range sort $section.Params.topicsAvailable "name" }}
 <details class="spoiler " id="spoiler-0">
 <summary>{{ .name | markdownify}}</summary>
 <ul class="ul-social fa-ul">
@@ -18,16 +18,13 @@
   <p>{{ .about | markdownify | emojify }}</p> 
 </li>
 <li style="display: inline-block; font-size: 0.75rem;">
-<i class="fa-solid fa-calendar"></i> {{ .when | markdownify }}</p>    
-</li>
-<li style="display: inline-block; font-size: 0.75rem;">
-<i class="fa-solid fa-globe"></i> {{ .skills | markdownify }}
+<i class="fa-solid fa-tags"></i> {{ .tags | markdownify }}
 </li>
 </ul>
 </details>
 {{ end }}
 
-<h2>{{ or $section.Params.headerProgress "Work in Progress:" }}</h2>
+<!-- <h2>{{ or $section.Params.headerProgress "Work in Progress:" }}</h2>
 <ul>
   {{ range where $theses "Params.status" "eq" "inprogress" }}
     <li>
@@ -43,7 +40,7 @@
       {{ .Params.topic }}
     </li>
   {{ end }}
-</ul>
+</ul> -->
 
 
 </div>
