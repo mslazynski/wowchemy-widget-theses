@@ -38,7 +38,7 @@
         {{ else if (eq .level 1) }}
         <i class="fa-solid fa-trophy"></i> {{ $section.Params.mscThesis }}
         {{ end }}</p></li>  
-      <li style="display: table-cell; width: 15%; font-size: 0.75rem;"><i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p></li>
+      <li style="display: table-cell; width: 5%; font-size: 0.75rem;"><i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p></li>
       {{ with .comment }}
       <li style="display: table-cell; font-size: 0.75rem;"><i class="fa-solid fa-note-sticky"></i> {{ . | markdownify }}</p></li>
       {{ end }}
