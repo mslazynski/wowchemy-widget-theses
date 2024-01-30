@@ -33,10 +33,10 @@
   <li>
     <i class="fa-solid fa-user-graduate"></i> {{ .author }} — {{ .title }}<li>
     <ul class="fa-ul">
-      <li style="display: inline-block; font-size: 0.75rem;"><i class="fa-solid fa-calendar"></i> {{ if (eq .level 0) }}
-        {{ $section.Params.engThesis }}
+      <li style="display: inline-block; font-size: 0.75rem;">{{ if (eq .level 0) }}
+        <i class="fa-solid fa-gear"></i> {{ $section.Params.engThesis }}
         {{ else if (eq .level 1) }}
-        {{ $section.Params.mscThesis }}
+        <i class="fa-solid fa-uniform-martial-arts"></i> {{ $section.Params.mscThesis }}
         {{ end }}</p></li>  
     <li style="display: inline-block; font-size: 0.75rem;"><i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p></li>
     <ul></ul>
