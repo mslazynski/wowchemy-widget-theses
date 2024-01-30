@@ -3,12 +3,12 @@
 {{ $theses := where site.RegularPages.ByTitle "Section" "thesis" }}
 
 <div class="row">
-<div class="col-12">
-  
+ 
 <h1>{{ $section.Title }}</h2>
 
 {{ $section.Content }}
 
+<div class="col-12 col-lg-6">
 <div class="section-subheading">{{ or $section.Params.headerAvailable "Available Topics:" }}</div>
 {{ range sort $section.Params.topicsAvailable "name" }}
 <details class="spoiler " id="spoiler-0">
@@ -23,25 +23,17 @@
 </ul>
 </details>
 {{ end }}
+</div>
 
-<!-- <h2>{{ or $section.Params.headerProgress "Work in Progress:" }}</h2>
-<ul>
-  {{ range where $theses "Params.status" "eq" "inprogress" }}
-    <li>
-      {{ .Params.topic }}
-    </li>
-  {{ end }}
-</ul>
-
+<div class="col-12 col-lg-6">
 <h2>{{ or $section.Params.headerFinished "Finished Theses:" }}</h2>
 <ul>
-  {{  range where $theses "Params.status" "eq" "finished" }}
+  {{  range where $theses  }}
     <li>
       {{ .Params.topic }}
     </li>
   {{ end }}
 </ul> -->
-
-
 </div>
+
 </div>
