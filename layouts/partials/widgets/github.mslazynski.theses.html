@@ -38,8 +38,11 @@
         {{ else if (eq .level 1) }}
         <i class="fa-solid fa-uniform-martial-arts"></i> {{ $section.Params.mscThesis }}
         {{ end }}</p></li>  
-    <li style="display: inline-block; font-size: 0.75rem; padding-right: 20px;"><i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p></li>
-    <ul></ul>
+      <li style="display: inline-block; font-size: 0.75rem; padding-right: 20px;"><i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p></li>
+      {{ with .comment }}
+      <li style="display: inline-block; font-size: 0.75rem; padding-right: 20px;"><i class="fa-solid fa-note-sticky"></i> {{ . | markdownify }}</p></li>
+      {{ end }}
+    </ul>
   </li>
   {{ end }}
   </ul>
