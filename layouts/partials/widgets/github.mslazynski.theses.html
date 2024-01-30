@@ -32,13 +32,13 @@
   {{ range sort $section.Params.theses "author" }}
   <li>
     <i class="fa-solid fa-user-graduate"></i> {{ .author }} — {{ .title }}<li>
-    <ul class="fa-ul" style="display: table; table-layout: fixed; border-spacing: 0px; width:600px;">
-      <li style="display: table-cell; font-size: 0.75rem;">{{ if (eq .level 0) }}
+    <ul class="fa-ul" style="display: table; table-layout: fixed; border-spacing: 0px; width:100%;">
+      <li style="display: table-cell; width: 20%; font-size: 0.75rem;">{{ if (eq .level 0) }}
         <i class="fa-solid fa-tools"></i> {{ $section.Params.engThesis }}
         {{ else if (eq .level 1) }}
         <i class="fa-solid fa-trophy"></i> {{ $section.Params.mscThesis }}
         {{ end }}</p></li>  
-      <li style="display: table-cell; font-size: 0.75rem;"><i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p></li>
+      <li style="display: table-cell; width: 20%; font-size: 0.75rem;"><i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p></li>
       {{ with .comment }}
       <li style="display: table-cell; font-size: 0.75rem;"><i class="fa-solid fa-note-sticky"></i> {{ . | markdownify }}</p></li>
       {{ end }}
