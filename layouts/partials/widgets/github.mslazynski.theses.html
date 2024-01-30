@@ -13,9 +13,14 @@
 <details class="spoiler " id="spoiler-0">
   <summary>{{ or $section.Params.headerFinished "Finished Theses:" }}</summary>
   <ul>
-  {{ range sort $section.Params.theses "name" }}
-  <li>
-  <a href="{{ .link }}"><i class="fa-solid fa-file-pdf"></i> {{ .name }}</a>
+  {{ range sort $section.Params.theses "author" }}
+  <li> {{ .author }} — {{ .title }} — 
+    {{ if (eq .level 0) }}
+    {{ $section.Params.engThesis }}
+    {{ else if (eq level 1) }}
+    {{ $section.Params.mscThesis }}
+    {{ end }}
+    {{ .year }}
   </li>
   {{ end }}
   </ul>
