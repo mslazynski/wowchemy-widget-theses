@@ -26,14 +26,14 @@
 </div>
 
 <div class="col-12 col-lg-6">
-<h2>{{ or $section.Params.headerFinished "Finished Theses:" }}</h2>
+<div class="section-subheading">{{ or $section.Params.headerFinished "Finished Theses:"  }}</div>
 <ul>
   {{  range $theses  }}
     <li>
       {{ .Params.topic }}
     </li>
   {{ end }}
-</ul> -->
+</ul>
 </div>
 
 </div>
