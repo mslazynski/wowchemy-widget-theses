@@ -17,7 +17,7 @@
   <li> {{ .author }} — {{ .title }} — 
     {{ if (eq .level 0) }}
     {{ $section.Params.engThesis }}
-    {{ else if (eq level 1) }}
+    {{ else if (eq .level 1) }}
     {{ $section.Params.mscThesis }}
     {{ end }}
     {{ .year }}
