@@ -28,7 +28,7 @@
 <div class="col-12 col-lg-6">
 <h2>{{ or $section.Params.headerFinished "Finished Theses:" }}</h2>
 <ul>
-  {{  range where $theses  }}
+  {{  range $theses  }}
     <li>
       {{ .Params.topic }}
     </li>
