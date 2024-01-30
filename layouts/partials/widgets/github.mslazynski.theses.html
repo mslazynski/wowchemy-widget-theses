@@ -28,11 +28,13 @@
 
 <div class="col-12">
 <div class="section-subheading">{{ or $section.Params.headerFinished "Finished Theses:" }}</div>
-  <ul class="ul-social fa-ul">
+  <ul class="fa-ul">
   {{ range sort $section.Params.theses "author" }}
   <li>
     <i class="fa-solid fa-user-graduate"></i> {{ .author }} — {{ .title }}<li>
-    <i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p>    
+    <ul class="fa-ul">
+    <li><i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p></li>
+    <ul></ul>
   </li>
   {{ end }}
   </ul>
