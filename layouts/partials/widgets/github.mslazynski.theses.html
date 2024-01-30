@@ -3,12 +3,26 @@
 {{ $theses := where site.RegularPages.ByTitle "Section" "thesis" }}
 
 <div class="row">
- 
-<h1>{{ $section.Title }}</h2>
+
+  
+<h1>{{ $section.Title }}</h1>
 
 {{ $section.Content }}
 
-<div class="col-12 col-lg-6">
+<div class="col-12"></div>
+<details class="spoiler " id="spoiler-0">
+  <summary>{{ or $section.Params.headerFinished "Finished Theses:" }}</summary>
+  <ul class="ul-social fa-ul">
+  {{ range sort $section.Params.theses "name" }}
+  <li>
+  <a href="{{ .link }}"><i class="fa-solid fa-file-pdf"></i> {{ .name }}</a>
+  </li>
+  {{ end }}
+  </ul>
+</details>
+</div>
+
+<div class="col-12">
 <div class="section-subheading">{{ or $section.Params.headerAvailable "Available Topics:" }}</div>
 {{ range sort $section.Params.topicsAvailable "name" }}
 <details class="spoiler " id="spoiler-0">
@@ -23,17 +37,9 @@
 </ul>
 </details>
 {{ end }}
-</div>
 
-<div class="col-12 col-lg-6">
-<div class="section-subheading">{{ or $section.Params.headerFinished "Finished Theses:"  }}</div>
-<ul>
-  {{  range $theses  }}
-    <li>
-      {{ .Params.topic }}
-    </li>
-  {{ end }}
-</ul>
-</div>
 
+
+
+</div>
 </div>
