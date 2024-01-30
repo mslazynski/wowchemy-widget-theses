@@ -31,13 +31,10 @@
   <ul class="ul-social fa-ul">
   {{ range sort $section.Params.theses "author" }}
   <li>
-    <i class="fa-solid fa-user-graduate"></i> {{ .author }} — {{ .title }} — 
-    {{ if (eq .level 0) }}
-    {{ $section.Params.engThesis }}
-    {{ else if (eq .level 1) }}
-    {{ $section.Params.mscThesis }}
-    {{ end }}
-    — {{ .year }}
+    <i class="fa-solid fa-user-graduate"></i> {{ .author }} — {{ .title }}<li>
+  </li>
+  <li style="display: inline-block; font-size: 0.75rem;">
+    <i class="fa-solid fa-calendar"></i> {{ .year | markdownify }}</p>    
   </li>
   {{ end }}
   </ul>
