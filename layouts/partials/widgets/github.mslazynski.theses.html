@@ -4,12 +4,12 @@
 
 <div class="row">
 
-  
+<div class="col-12 col-lg-5">  
 <h1>{{ $section.Title }}</h1>
 
 {{ $section.Content }}
-
-<div class="col-12">
+</div>
+<div class="col-12 col-lg-7">
 <div class="section-subheading">{{ or $section.Params.headerAvailable "Available Topics:" }}</div>
 {{ range sort $section.Params.topicsAvailable "name" }}
 <details class="spoiler " id="spoiler-0">
