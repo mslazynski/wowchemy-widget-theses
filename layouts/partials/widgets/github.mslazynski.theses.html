@@ -31,7 +31,7 @@
   <ul class="fa-ul">
   {{ range sort $section.Params.theses "author" }}
   <li>
-    <i class="fa-solid fa-user-graduate"></i> {{ .author }}: \t{{ if .link }}<a href={{ .link }}>{{ .title }}</a>{{ else }} {{ .link }} {{ end }}<li>
+    <i class="fa-solid fa-user-graduate"></i> {{ .author }}: {{ with .link }}<a href={{ .link }}>{{ .title }}</a>{{ else }} {{ .link }} {{ end }}<li>
     <ul class="fa-ul" style="display: table; table-layout: fixed; border-spacing: 0px; width:100%;">
       <li style="display: table-cell; width: 15%; font-size: 0.75rem;">{{ if (eq .level 0) }}
         <i class="fa-solid fa-tools"></i> {{ $section.Params.engThesis }}
